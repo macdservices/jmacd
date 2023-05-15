@@ -1,7 +1,5 @@
 package com.bdwise.prometheus.client;
 
-import junit.framework.TestCase;
-
 //import java.net.MalformedURLException;
 //import java.net.URI;
 //import java.text.SimpleDateFormat;
@@ -31,8 +29,9 @@ import junit.framework.TestCase;
 //
 //import junit.framework.TestCase;
 
-public class PromqlTest extends TestCase {
+public class PromqlTest {
 }
+//public class PromqlTest extends TestCase {
 //
 //	private final static String TARGET_SERVER = "http://192.168.66.60:9090";
 //	

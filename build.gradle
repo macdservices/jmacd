@@ -23,7 +23,7 @@ class Version {
 
 	String toString() {
 		if (buildNumberString == null) {
-			"1.0.0.5"
+			"1.0.0.6"
 
 		} else {
 			int buildNumber = Integer.parseInt(buildNumberString)
@@ -37,6 +37,7 @@ subprojects {
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
 	apply plugin: 'project-report'
+	apply plugin: 'java-library'
 
 	sourceCompatibility = 19
 	targetCompatibility = 19

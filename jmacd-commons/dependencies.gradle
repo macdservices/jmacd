@@ -1,30 +1,30 @@
 dependencies {
 	
-	implementation 'commons-io:commons-io:2.11.0'
+	api 'commons-io:commons-io:2.11.0'
   
-	implementation('com.google.code.gson:gson:2.10') // *** No compile dependencies
+	api('com.google.code.gson:gson:2.10') // *** No compile dependencies
 	
 	// https://github.com/brettwooldridge/HikariCP
-	implementation('com.zaxxer:HikariCP:5.0.1') {
+	api('com.zaxxer:HikariCP:5.0.1') {
 		exclude module: 'slf4j-api'
 	}
 	
-	implementation('org.postgresql:postgresql:42.5.1') {
+	api('org.postgresql:postgresql:42.5.1') {
 		exclude module: 'checker-qual'
 	}
-	implementation('org.checkerframework:checker-qual:3.12.0')
+	api('org.checkerframework:checker-qual:3.12.0')
 
 	// https://www.stubbornjava.com/posts/monitoring-your-java-services-with-dropwizard-health-checks
-	implementation(group: 'io.dropwizard.metrics', name: 'metrics-healthchecks', version: '4.2.15') {
+	api(group: 'io.dropwizard.metrics', name: 'metrics-healthchecks', version: '4.2.15') {
 		exclude group: 'log4j', module: 'log4j'
 		exclude module: 'slf4j-api'
 	}
 
 	// https://github.com/lightbend/config
-	implementation('com.typesafe:config:1.4.2') { }
+	api('com.typesafe:config:1.4.2') { }
 	
 		// https://github.com/RuedigerMoeller/fast-serialization
-	implementation('de.ruedigermoeller:fst:3.0.4-jdk17') {
+	api('de.ruedigermoeller:fst:3.0.4-jdk17') {
 		exclude module: 'commons-io'
 		exclude module: 'commons-compress'
 		exclude module: 'slf4j-api'
@@ -51,17 +51,17 @@ dependencies {
 	}
 	
 	// http://kong.github.io/unirest-java/ 
-	implementation('com.konghq:unirest-java:3.14.2:standalone') {
+	api('com.konghq:unirest-java:3.14.2:standalone') {
 		exclude module: 'commons-codec'
 	}
 	
-	implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.1'
-	implementation(group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.11.1') {
+	api group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.1'
+	api(group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.11.1') {
 		exclude module: 'slf4j-api'
 	}
 	
-	implementation('org.slf4j:slf4j-api:2.0.6')
-	implementation 'org.slf4j:slf4j-simple:2.0.6'
+	api('org.slf4j:slf4j-api:2.0.6')
+	api 'org.slf4j:slf4j-simple:2.0.6'
 
 	// Testing
 	
