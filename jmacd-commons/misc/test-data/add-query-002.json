@@ -1,0 +1,8 @@
+{
+  "sqlQueryDefinition": {
+    "query": "select * from table_01"
+  },
+  "queryName": "Query-002",
+  "queryEngineName": "QueryEngine-002",
+  "updateFrequencyInMilliseconds": 1000
+}

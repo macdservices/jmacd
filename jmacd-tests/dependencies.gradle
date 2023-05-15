@@ -1,0 +1,6 @@
+
+dependencies {
+	implementation project(':jmacd-commons')
+	implementation project(':jmacd-client')
+	implementation project(':jmacd-server')
+}

@@ -1,0 +1,6 @@
+{
+  "queryName": "Query-002",
+  "queryEngineName": "QueryEngine-002",
+  "query": "select * from table_01",
+  "updateFrequencyInMilliseconds": 1000
+}

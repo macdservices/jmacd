@@ -1,0 +1,7 @@
+{
+  "queryEngineName": "QueryEngine-001",
+  "queryType": "Promql",
+  "queryDatabaseUrl": "http://ssss",
+  "userName": "aUser",
+  "userPassword": "aPassword"
+}

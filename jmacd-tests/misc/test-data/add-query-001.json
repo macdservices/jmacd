@@ -1,0 +1,6 @@
+{
+  "queryName": "Query-001",
+  "queryEngineName": "QueryEngine-001",
+  "query": "kube_pod_info",
+  "updateFrequencyInMilliseconds": 1000
+}

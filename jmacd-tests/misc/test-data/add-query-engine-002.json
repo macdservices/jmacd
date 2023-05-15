@@ -1,0 +1,7 @@
+{
+  "queryEngineName": "QueryEngine-002",
+  "queryType": "Sql",
+  "queryDatabaseUrl": "http://tttt",
+  "userName": "aUser2",
+  "userPassword": "aPassword2"
+}

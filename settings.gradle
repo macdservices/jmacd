@@ -1,0 +1,8 @@
+rootProject.name = 'jmacd'
+
+include ':jmacd-server',
+        ':jmacd-client',
+        ':jmacd-commons',
+        ':jmacd-tests'
+
+

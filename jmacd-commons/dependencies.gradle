@@ -1,0 +1,76 @@
+dependencies {
+	
+	implementation 'commons-io:commons-io:2.11.0'
+  
+	implementation('com.google.code.gson:gson:2.10') // *** No compile dependencies
+	
+	// https://github.com/brettwooldridge/HikariCP
+	implementation('com.zaxxer:HikariCP:5.0.1') {
+		exclude module: 'slf4j-api'
+	}
+	
+	implementation('org.postgresql:postgresql:42.5.1') {
+		exclude module: 'checker-qual'
+	}
+	implementation('org.checkerframework:checker-qual:3.12.0')
+
+	// https://www.stubbornjava.com/posts/monitoring-your-java-services-with-dropwizard-health-checks
+	implementation(group: 'io.dropwizard.metrics', name: 'metrics-healthchecks', version: '4.2.15') {
+		exclude group: 'log4j', module: 'log4j'
+		exclude module: 'slf4j-api'
+	}
+
+	// https://github.com/lightbend/config
+	implementation('com.typesafe:config:1.4.2') { }
+	
+		// https://github.com/RuedigerMoeller/fast-serialization
+	implementation('de.ruedigermoeller:fst:3.0.4-jdk17') {
+		exclude module: 'commons-io'
+		exclude module: 'commons-compress'
+		exclude module: 'slf4j-api'
+		exclude module: 'org.osgi.core'
+		exclude module: 'maven-core'
+		exclude module: 'org.osgi.util.function'
+		exclude module: 'maven-model'
+		exclude module: 'maven-artifact'
+		exclude module: 'plexus-component-annotations'
+		exclude module: 'plexus-interpolation'
+		exclude module: 'plexus-container-default'
+		exclude module: 'commons-collections'
+		exclude module: 'plexus-utils'
+	    /*
+		exclude module: 'jackson-core'
+		exclude module: 'commons-lang3'
+		exclude module: 'javassist'
+		exclude module: 'guava'
+		exclude module: 'objenesis'
+		
+       - org.eclipse.aether:aether-util between versions 1.0.2.v20150114 and 0.9.0.M2
+       - org.codehaus.plexus:plexus-classworlds between versions 2.5.2 and 1.2-alpha-9
+		*/
+	}
+	
+	// http://kong.github.io/unirest-java/ 
+	implementation('com.konghq:unirest-java:3.14.2:standalone') {
+		exclude module: 'commons-codec'
+	}
+	
+	implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.1'
+	implementation(group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.11.1') {
+		exclude module: 'slf4j-api'
+	}
+	
+	implementation('org.slf4j:slf4j-api:2.0.6')
+	implementation 'org.slf4j:slf4j-simple:2.0.6'
+
+	// Testing
+	
+	testImplementation(group: 'junit', name: 'junit', version: '4.13.1') {
+		exclude module: 'org.hamcrest'
+	}
+	testImplementation(group: 'pl.pragmatists', name: 'JUnitParams', version: '1.1.1') {
+		exclude module: 'junit'
+	}
+	testImplementation group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+
+}

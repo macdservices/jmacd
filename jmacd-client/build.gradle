@@ -1,0 +1,14 @@
+
+publishing {
+	publications {
+		main(MavenPublication) {
+			from components.java
+		}
+	}
+}
+
+repositories {
+    jcenter()
+}
+
+apply from: 'dependencies.gradle'

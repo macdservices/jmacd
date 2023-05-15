@@ -1,0 +1,8 @@
+{
+  "promQueryDefinition": {
+    "query": "kube_pod_info"
+  },
+  "queryName": "Query-001",
+  "queryEngineName": "QueryEngine-001",
+  "updateFrequencyInMilliseconds": 1000
+}
