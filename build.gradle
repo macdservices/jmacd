@@ -54,7 +54,7 @@ subprojects {
 	
 	repositories {
 		flatDir {
-		    dirs "$rootProject.projectDir/libs"
+		    dirs "$projectDir/libs"
 		}
     
 		mavenCentral()
