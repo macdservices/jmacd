@@ -44,7 +44,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.6
-          argumetns: closeAndReleaseRepository
+          arguments: closeAndReleaseRepository
         env:
           ORG_GRADLE_PROJECT_VERSION_NAME: ${{ github.event.inputs.versionName }}
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY }}
