@@ -91,10 +91,10 @@ subprojects {
     }
 
 	mavenPublishing {
-	  publishToMavenCentral(SonatypeHost.DEFAULT)
+	  //publishToMavenCentral(SonatypeHost.DEFAULT)
 	
 	  // or when publishing to https://s01.oss.sonatype.org
-	  //publishToMavenCentral(SonatypeHost.S01)
+	  publishToMavenCentral(SonatypeHost.S01)
 	
 	  signAllPublications()
 	}
