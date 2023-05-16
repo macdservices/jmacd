@@ -1,14 +1,11 @@
 
-publishing {
-	publications {
-		main(MavenPublication) {
-			from components.java
-		}
-	}
-}
-
-repositories {
-    jcenter()
-}
-
 apply from: 'dependencies.gradle'
+
+mavenPublishing {
+  coordinates(group, project.name, version)
+
+  pom {
+    name = "JMacD Commons"
+    description = "JMacD's Common Functions"
+  }
+}

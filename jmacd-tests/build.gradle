@@ -1,12 +1,4 @@
 
-publishing {
-	publications {
-		main(MavenPublication) {
-			from components.java
-		}
-	}
-}
-
 repositories {
     jcenter()
 }

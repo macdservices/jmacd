@@ -1,13 +1,7 @@
 
+import com.vanniktech.maven.publish.SonatypeHost;
 
 buildscript {
-  if ( new File("c:\\").exists() == false) {
-	println "System Environmental Variables"
-	System.getenv().each {
-		println it;
-	}
-  }
-
 	repositories {
 		mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
@@ -15,7 +9,14 @@ buildscript {
 
 	dependencies {
 		classpath "io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE"
+		classpath "com.vanniktech:gradle-maven-publish-plugin:0.13.0"
 	}
+}
+	
+plugins {
+	// https://plugins.gradle.org/plugin/com.vanniktech.maven.publish
+	// https://github.com/vanniktech/gradle-maven-publish-plugin
+	id "com.vanniktech.maven.publish" version "0.25.2"
 }
 
 class Version {
@@ -38,7 +39,10 @@ subprojects {
 	apply plugin: 'eclipse'
 	apply plugin: 'project-report'
 	apply plugin: 'java-library'
+	apply plugin: "com.vanniktech.maven.publish"
 
+	//apply plugin: 'distribution'
+	
 	sourceCompatibility = 19
 	targetCompatibility = 19
 	compileJava.options.encoding = 'UTF-8'
@@ -88,23 +92,39 @@ subprojects {
         }
     }
 
-	apply plugin: 'maven-publish'
-	apply plugin: 'distribution'
-
-	publishing {
-		def artifactoryDeployUser = System.getenv("PUBLISH_REPO_USER")
-		def artifactoryDeployPass = System.getenv("PUBLISH_REPO_PASSWORD")
-
-		repositories {
-			maven {
-				credentials {
-					username artifactoryDeployUser
-					password artifactoryDeployPass
-				}
-
-				url "https://redmindset.com:8081/artifactory/news"
-			}
-		}
+	mavenPublishing {
+	  publishToMavenCentral(SonatypeHost.DEFAULT)
+	
+	  // or when publishing to https://s01.oss.sonatype.org
+	  //publishToMavenCentral(SonatypeHost.S01)
+	
+	  signAllPublications()
+	}
+	
+	mavenPublishing {
+	  pom {
+		url = "https://github.com/macdservices/jmacd"	  
+	    inceptionYear = "2023"
+	    licenses {
+	      license {
+	        name = "BSD-3-Clause"
+	        url = "https://fossa.com/blog/open-source-software-licenses-101-bsd-3-clause-license/"
+	        distribution = "https://fossa.com/blog/open-source-software-licenses-101-bsd-3-clause-license/"
+	      }
+	    }
+	    developers {
+	      developer {
+	        id = "macdservices"
+	        name = "Paul Davenport"
+	        url = "https://github.com/macdservices"
+	      }
+	    }
+	    scm {
+	      url = "https://github.com/macdservices/jmacd"
+	      connection = "scm:git:git://github.com/macdservices/jmacd.git"
+	      developerConnection = "scm:git:ssh://git@github.com:macdservices/jmacd.git"
+	    }
+	  }
 	}
     
 	dependencies {
