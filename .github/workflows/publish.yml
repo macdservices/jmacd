@@ -21,7 +21,7 @@ jobs:
           java-version: '19'
 
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v3
+        uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.6
           arguments: build
@@ -29,7 +29,7 @@ jobs:
           ORG_GRADLE_PROJECT_VERSION_NAME: ${{ github.event.inputs.versionName }}
 
       - name: Publish Library
-        uses: gradle/gradle-build-action@v3
+        uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.6
           arguments: publish --no-daemon --no-parallel
@@ -41,7 +41,7 @@ jobs:
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
 
       - name: Close and Release Repository
-        uses: gradle/gradle-build-action@v3
+        uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.6
           argumetns: closeAndReleaseRepository
