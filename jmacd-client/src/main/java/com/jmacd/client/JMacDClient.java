@@ -23,7 +23,9 @@ import kong.unirest.Unirest;
 public class JMacDClient implements JMacDUtils, JMacDPathes {
 
 	private final String url;
+	@SuppressWarnings("unused")
 	private final String user;
+	@SuppressWarnings("unused")
 	private final String password;
 	private final String token;
 

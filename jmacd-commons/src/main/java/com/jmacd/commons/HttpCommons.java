@@ -11,6 +11,7 @@ public interface HttpCommons extends JMacDCommonsErrors {
 		openUrl(url);
 	}
 
+	@SuppressWarnings("deprecation")
 	default void openUrl(String url) {
 
 		if (Desktop.isDesktopSupported()) {

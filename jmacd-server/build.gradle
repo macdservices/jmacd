@@ -6,6 +6,6 @@ mavenPublishing {
 
   pom {
     name = "JMacD Server"
-    description = "JMacD's SLibrary"
+    description = "JMacD's Client Library"
   }
 }

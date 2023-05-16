@@ -2,7 +2,6 @@ package com.jmacd.server.queryEngines;
 
 import java.util.concurrent.ScheduledFuture;
 
-import com.jmacd.server.queryEngines.QueryEngine;
 import com.jmacd.server.queryEngines.queryDefinitions.QueryDefinition;
 
 import lombok.Builder;

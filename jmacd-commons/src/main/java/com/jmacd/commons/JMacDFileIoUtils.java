@@ -15,7 +15,7 @@ public interface JMacDFileIoUtils extends JMacDCommonsJson, JMacDCommons {
 
 	public static final String EMPTY_STRING = ""; //$NON-NLS-1$
 
-	default byte[] readClassFileToBytes(Class aClass, String fileName) {
+	default byte[] readClassFileToBytes(Class<?> aClass, String fileName) {
 		try {
 			InputStream fileInputStream = aClass.getResourceAsStream(fileName);
 
@@ -32,7 +32,8 @@ public interface JMacDFileIoUtils extends JMacDCommonsJson, JMacDCommons {
 		}
 	}
 
-	default String readClassFileToString(Class aClass, String fileName) {
+	@SuppressWarnings("deprecation")
+	default String readClassFileToString(Class<?> aClass, String fileName) {
 		try {
 			InputStream fileInputStream = aClass.getResourceAsStream(fileName);
 
@@ -89,6 +90,7 @@ public interface JMacDFileIoUtils extends JMacDCommonsJson, JMacDCommons {
 		writeFile(file, data);
 	}
 
+	@SuppressWarnings("deprecation")
 	default void writeFile(File file, CharSequence data) {
 		if (file.exists() == true) {
 			if (file.canWrite() == false) {
@@ -142,6 +144,7 @@ public interface JMacDFileIoUtils extends JMacDCommonsJson, JMacDCommons {
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	default String readFileToString(File file) {
 
 		commonFileReadAssertions(file);
@@ -182,6 +185,7 @@ public interface JMacDFileIoUtils extends JMacDCommonsJson, JMacDCommons {
 		return readFileToLines(file);
 	}
 
+	@SuppressWarnings("deprecation")
 	default List<String> readFileToLines(File file) {
 
 		if (file.exists() == false) {

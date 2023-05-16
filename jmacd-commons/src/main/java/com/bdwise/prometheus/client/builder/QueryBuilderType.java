@@ -1,73 +1,72 @@
 package com.bdwise.prometheus.client.builder;
 
 public enum QueryBuilderType {
-	RangeQuery{
+	RangeQuery {
 
-		@SuppressWarnings("unchecked")
 		@Override
+		@SuppressWarnings("unchecked")
 		public RangeQueryBuilder newInstance(String prometheusUrl) {
 			return new RangeQueryBuilder(prometheusUrl);
 		}
-		
-	},
-	InstantQuery{
 
-		@SuppressWarnings("unchecked")
+	},
+	InstantQuery {
+
 		@Override
+		@SuppressWarnings("unchecked")
 		public InstantQueryBuilder newInstance(String prometheusUrl) {
 			return new InstantQueryBuilder(prometheusUrl);
 		}
-		
-	},
-	SeriesMetadaQuery{
 
-		@SuppressWarnings("unchecked")
+	},
+	SeriesMetadaQuery {
+
 		@Override
+		@SuppressWarnings("unchecked")
 		public QueryBuilder newInstance(String prometheusUrl) {
 			return new SeriesMetaQueryBuilder(prometheusUrl);
 		}
-		
-	},
-	LabelMetadaQuery{
 
-		@SuppressWarnings("unchecked")
+	},
+	LabelMetadaQuery {
+
 		@Override
+		@SuppressWarnings("unchecked")
 		public QueryBuilder newInstance(String prometheusUrl) {
 			return new LabelMetaQueryBuilder(prometheusUrl);
 		}
-		
+
 	},
 
-	TargetMetadaQuery{
+	TargetMetadaQuery {
 
-		@SuppressWarnings("unchecked")
 		@Override
+		@SuppressWarnings("unchecked")
 		public QueryBuilder newInstance(String prometheusUrl) {
 			return new TargetMetaQueryBuilder(prometheusUrl);
 		}
-		
+
 	},
 
-	AlertManagerMetadaQuery{
+	AlertManagerMetadaQuery {
 
-		@SuppressWarnings("unchecked")
 		@Override
+		@SuppressWarnings("unchecked")
 		public QueryBuilder newInstance(String prometheusUrl) {
 			return new AlertManagerMetaQueryBuilder(prometheusUrl);
 		}
-		
-	},
-	
-	StatusMetadaQuery{
 
-		@SuppressWarnings("unchecked")
+	},
+
+	StatusMetadaQuery {
+
 		@Override
+		@SuppressWarnings("unchecked")
 		public QueryBuilder newInstance(String prometheusUrl) {
 			return new StatusMetaQueryBuilder(prometheusUrl);
 		}
-		
+
 	};
 
-	
 	public abstract <T extends QueryBuilder> T newInstance(String prometheusUrl);
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -108,12 +109,14 @@ public class QueryFactory implements JMacDUtils {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public <T> T getQueryResult(String queryName, Class<T> aClass) {
 		synchronized (queryNameToResultMap) {
 			return (T) queryNameToResultMap.get(queryName);
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addQuery(//
 			String queryName, //
 			String queryEngineName, //
@@ -397,8 +400,21 @@ public class QueryFactory implements JMacDUtils {
 			throw new IllegalArgumentException("No query engine named, " + queryEngineName);
 		}
 
-		QueryEngine<?, ?> queryEngine = nameToQueryEngineMap.get(queryEngineName);
+		List<String> usedQueries = new ArrayList<>();
 
+		for (Entry<String, QueryCachingDefinition<?, ?>> entry : nameToQueryDefinitionMap.entrySet()) {
+			if (entry.getValue().getQueryEngine().getQueryEngineName().equals(queryEngineName) == true) {
+				usedQueries.add(entry.getValue().getQueryName());
+			}
+		}
+
+		if (usedQueries.size() > 0) {
+			throw new RuntimeException(
+					"Can NOT remove: QueryEngine, QUERY_ENGINE, is used by the following queries: " + "\n"//
+							+ String.join("\n", usedQueries));
+		}
+
+		nameToQueryEngineMap.remove(queryEngineName);
 	}
 
 	///

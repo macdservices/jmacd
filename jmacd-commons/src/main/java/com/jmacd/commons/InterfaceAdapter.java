@@ -23,7 +23,7 @@ public class InterfaceAdapter<T> implements JsonSerializer<T>, JsonDeserializer<
 		JsonObject jsonObject = jsonElement.getAsJsonObject();
 		JsonPrimitive prim = (JsonPrimitive) jsonObject.get(CLASSNAME);
 		String className = prim.getAsString();
-		Class klass = getObjectClass(className);
+		Class<?> klass = getObjectClass(className);
 		return jsonDeserializationContext.deserialize(jsonObject.get(DATA), klass);
 	}
 
@@ -38,7 +38,7 @@ public class InterfaceAdapter<T> implements JsonSerializer<T>, JsonDeserializer<
 	/******
 	 * Helper method to get the className of the object to be deserialized
 	 *****/
-	public Class getObjectClass(String className) {
+	public Class<?> getObjectClass(String className) {
 		try {
 			return Class.forName(className);
 		} catch (ClassNotFoundException e) {
