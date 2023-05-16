@@ -1,6 +1,6 @@
 
 apply from: 'dependencies.gradle'
-
+    
 mavenPublishing {
   coordinates(group, project.name, version)
 
