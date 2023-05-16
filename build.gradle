@@ -20,16 +20,13 @@ plugins {
 }
 
 class Version {
-	String buildNumberString = System.getenv("BUILD_NUMBER")
+	String versionNameString = System.getenv("ORG_GRADLE_PROJECT_VERSION_NAME")
 
 	String toString() {
-		if (buildNumberString == null) {
-			"1.0.0.6"
-
+		if (versionNameString == null) {
+			return "1.1.1.1"
 		} else {
-			int buildNumber = Integer.parseInt(buildNumberString)
-
-			"1.0.0.$buildNumber"
+			return "$versionNameString"
 		}
 	}
 }
