@@ -58,8 +58,8 @@ dependencies {
 		exclude module: 'commons-codec'
 	}
 	
-	api group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.1'
-	api(group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.11.1') {
+	api group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.1'
+	api(group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.17.1') {
 		exclude module: 'slf4j-api'
 	}
 	
